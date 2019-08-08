@@ -38,7 +38,6 @@ class MyDataset(Dataset):
         anno = self._load_anno(os.path.join(self.anno_path, spk, 'align', name + '.align'))
 
         if(self.phase == 'train'):
-#vid = FrameRemoval(vid)
             vid = HorizontalFlip(vid)
         vid = ColorNormalize(vid)
         

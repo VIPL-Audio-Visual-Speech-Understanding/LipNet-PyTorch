@@ -58,7 +58,8 @@ def test(model, net):
             loss = crit(y.transpose(0, 1), txt, vid_len.view(-1), txt_len.view(-1)).detach().cpu().numpy()
             loss_list.append(loss)
             pred_txt = y.argmax(-1)
-            pred_txt = [MyDataset.ctc_arr2txt(pred_txt[_], start=1) for _ in range(pred_txt.size(0))]
+            pred_txt = [MyDataset.arr2txt(pred_txt[_], start=1) for _ in range(pred_txt.size(0))]
+
             truth_txt = [MyDataset.arr2txt(txt[_], start=1) for _ in range(txt.size(0))]
             wer.append(MyDataset.wer(pred_txt, truth_txt))            
             if(i_iter % opt.display == 0):
