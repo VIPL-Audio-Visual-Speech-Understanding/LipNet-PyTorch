@@ -91,7 +91,7 @@ class MyDataset(Dataset):
         for n in arr:
             if(n >= start):
                 txt.append(MyDataset.letters[n - start])     
-        return ''.join(txt)
+        return ''.join(txt).strip()
     
     @staticmethod
     def ctc_arr2txt(arr, start):
@@ -101,7 +101,7 @@ class MyDataset(Dataset):
             if(pre != n and n >= start):
                 txt.append(MyDataset.letters[n - start])
             pre = n
-        return ''.join(txt)
+        return ''.join(txt).strip()
             
     @staticmethod
     def wer(predict, truth):        

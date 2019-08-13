@@ -31,8 +31,13 @@ def show_lr(optimizer):
     lr = []
     for param_group in optimizer.param_groups:
         lr += [param_group['lr']]
-    return np.array(lr).mean()    
+    return np.array(lr).mean()  
 
+def ctc_decode(y):
+    result = []
+    y = y.argmax(-1)
+    return [MyDataset.ctc_arr2txt(y[_], start=1) for _ in range(y.size(0))]
+    
 def test(model, net):
 
     with torch.no_grad():
@@ -46,6 +51,7 @@ def test(model, net):
         loader = dataset2dataloader(dataset)
         loss_list = []
         wer = []
+        cer = []
         crit = nn.CTCLoss()
         tic = time.time()
         for (i_iter, input) in enumerate(loader):            
@@ -55,12 +61,13 @@ def test(model, net):
             txt_len = input.get('txt_len').cuda()
             
             y = net(vid)
-            loss = crit(y.transpose(0, 1), txt, vid_len.view(-1), txt_len.view(-1)).detach().cpu().numpy()
+            loss = crit(y.transpose(0, 1).log_softmax(-1), txt, vid_len.view(-1), txt_len.view(-1)).detach().cpu().numpy()
             loss_list.append(loss)
-            pred_txt = y.argmax(-1)
-            pred_txt = [MyDataset.ctc_arr2txt(pred_txt[_], start=1) for _ in range(pred_txt.size(0))]
+            pred_txt = ctc_decode(y)
+            
             truth_txt = [MyDataset.arr2txt(txt[_], start=1) for _ in range(txt.size(0))]
-            wer.append(MyDataset.wer(pred_txt, truth_txt))            
+            wer.append(MyDataset.wer(pred_txt, truth_txt)) 
+            cer.append(MyDataset.cer(pred_txt, truth_txt))              
             if(i_iter % opt.display == 0):
                 v = 1.0*(time.time()-tic)/(i_iter+1)
                 eta = v * (len(loader)-i_iter) / 3600.0
@@ -71,10 +78,10 @@ def test(model, net):
                 for (predict, truth) in list(zip(pred_txt, truth_txt))[:10]:
                     print('{:<50}|{:>50}'.format(predict, truth))                
                 print(''.join(101 *'-'))
-                print('test_iter={},eta={},wer={}'.format(i_iter,eta,np.array(wer).mean()))                
+                print('test_iter={},eta={},wer={},cer={}'.format(i_iter,eta,np.array(wer).mean(),np.array(cer).mean()))                
                 print(''.join(101 *'-'))
                 
-        return (np.array(loss_list).mean(), np.array(wer).mean())
+        return (np.array(loss_list).mean(), np.array(wer).mean(), np.array(cer).mean())
     
 def train(model, net):
     
@@ -105,15 +112,15 @@ def train(model, net):
             
             optimizer.zero_grad()
             y = net(vid)
-            loss = crit(y.transpose(0, 1), txt, vid_len.view(-1), txt_len.view(-1))
+            loss = crit(y.transpose(0, 1).log_softmax(-1), txt, vid_len.view(-1), txt_len.view(-1))
+            loss.backward()
             if(opt.is_optimize):
-                loss.backward()
                 optimizer.step()
             
             tot_iter = i_iter + epoch*len(loader)
             
-            pred_txt = y.argmax(-1)
-            pred_txt = [MyDataset.ctc_arr2txt(pred_txt[_], start=1) for _ in range(pred_txt.size(0))]
+            pred_txt = ctc_decode(y)
+            
             truth_txt = [MyDataset.arr2txt(txt[_], start=1) for _ in range(txt.size(0))]
             train_wer.append(MyDataset.wer(pred_txt, truth_txt))
             
@@ -125,26 +132,28 @@ def train(model, net):
                 writer.add_scalar('train wer', np.array(train_wer).mean(), tot_iter)              
                 print(''.join(101*'-'))                
                 print('{:<50}|{:>50}'.format('predict', 'truth'))                
-                print(''.join(101*'-'))                
+                print(''.join(101*'-'))
                 
                 for (predict, truth) in list(zip(pred_txt, truth_txt))[:3]:
                     print('{:<50}|{:>50}'.format(predict, truth))
                 print(''.join(101*'-'))                
                 print('epoch={},tot_iter={},eta={},loss={},train_wer={}'.format(epoch, tot_iter, eta, loss, np.array(train_wer).mean()))
                 print(''.join(101*'-'))
-                if(not opt.is_optimize):
-                    break
+
                 
             if(tot_iter % opt.test_step == 0):                
-                (loss, wer) = test(model, net)
-                print('i_iter={},lr={},loss={},wer={}'
-                    .format(tot_iter,show_lr(optimizer),loss,wer))
+                (loss, wer, cer) = test(model, net)
+                print('i_iter={},lr={},loss={},wer={},cer={}'
+                    .format(tot_iter,show_lr(optimizer),loss,wer,cer))
                 writer.add_scalar('val loss', loss, tot_iter)                    
                 writer.add_scalar('wer', wer, tot_iter)
-                savename = '{}_{}_{}.pt'.format(opt.save_prefix, loss, wer)
+                writer.add_scalar('cer', cer, tot_iter)
+                savename = '{}_loss_{}_wer_{}_cer_{}.pt'.format(opt.save_prefix, loss, wer, cer)
                 (path, name) = os.path.split(savename)
                 if(not os.path.exists(path)): os.makedirs(path)
                 torch.save(model.state_dict(), savename)
+                if(not opt.is_optimize):
+                    exit()
                 
 if(__name__ == '__main__'):
     print("Loading options...")

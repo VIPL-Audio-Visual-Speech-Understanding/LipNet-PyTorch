@@ -5,8 +5,8 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 ## Results
 |       Scenario          |  CER  |  WER  |
 |:-----------------------:|:-----:|:-----:|
-|    Unseen speakers      |  N/A  |  13.63%  |
-|   Overlapped speakers   |  N/A  |  4.24%  |
+|    Unseen speakers      |  7.18% |  13.63% |
+|   Overlapped speakers   |  1.81%  |  4.24%  |
 
 **Notes**:
 

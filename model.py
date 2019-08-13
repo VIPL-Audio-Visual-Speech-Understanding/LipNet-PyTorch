@@ -84,6 +84,7 @@ class LipNet(torch.nn.Module):
         x = self.dropout(x)
                 
         x = self.FC(x)
-        x = x.log_softmax(2)
         x = x.permute(1, 0, 2).contiguous()
         return x
+        
+    
