@@ -18,6 +18,7 @@ from tensorboardX import SummaryWriter
 
 if(__name__ == '__main__'):
     opt = __import__('options')
+    os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu    
     writer = SummaryWriter()
 
 def dataset2dataloader(dataset, num_workers=opt.num_workers):
@@ -46,7 +47,8 @@ def test(model, net):
             opt.vid_padding,
             opt.txt_padding,
             'test')
-        
+            
+        print('num_test_data:{}'.format(len(dataset.data)))  
         model.eval()
         loader = dataset2dataloader(dataset)
         loss_list = []
@@ -97,7 +99,7 @@ def train(model, net):
                 weight_decay = 0.,
                 amsgrad = True)
                 
-    print('num_data:{}'.format(len(dataset.data)))    
+    print('num_train_data:{}'.format(len(dataset.data)))    
     crit = nn.CTCLoss()
     tic = time.time()
     
@@ -157,7 +159,6 @@ def train(model, net):
                 
 if(__name__ == '__main__'):
     print("Loading options...")
-    os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu    
     model = LipNet()
     model = model.cuda()
     net = nn.DataParallel(model).cuda()
