@@ -18,18 +18,19 @@ import editdistance
 class MyDataset(Dataset):
     letters = [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-    def __init__(self, vid_path, anno_path, vid_pad, txt_pad, phase):
+    def __init__(self, video_path, anno_path, file_list, vid_pad, txt_pad, phase):
         self.anno_path = anno_path
         self.vid_pad = vid_pad
         self.txt_pad = txt_pad
         self.phase = phase
         
-        self.videos = glob.glob(os.path.join(vid_path, "*", "*", "*", "*"))
-        self.videos = list(filter(lambda dir: len(os.listdir(dir)) == 75, self.videos))
+        with open(file_list, 'r') as f:
+            self.videos = [os.path.join(video_path, line.strip()) for line in f.readlines()]
+            
         self.data = []
         for vid in self.videos:
             items = vid.split(os.path.sep)            
-            self.data.append((vid, items[-4], items[-1]))        
+            self.data.append((vid, items[-4], items[-1]))
         
                 
     def __getitem__(self, idx):

@@ -42,8 +42,9 @@ def ctc_decode(y):
 def test(model, net):
 
     with torch.no_grad():
-        dataset = MyDataset(opt.val_vid_path,
+        dataset = MyDataset(opt.video_path,
             opt.anno_path,
+            opt.val_list,
             opt.vid_padding,
             opt.txt_padding,
             'test')
@@ -87,8 +88,9 @@ def test(model, net):
     
 def train(model, net):
     
-    dataset = MyDataset(opt.trn_vid_path,
+    dataset = MyDataset(opt.video_path,
         opt.anno_path,
+        opt.train_list,
         opt.vid_padding,
         opt.txt_padding,
         'train')
