@@ -8,7 +8,6 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 |:-----------------------:|:-----:|:-----:|
 |    Unseen speakers      |  6.7% |  13.6% |
 |   Overlapped speakers   |  2.0%  |  5.6%  |
-|:-----------------------:|:-----:|:-----:|
 |    Unseen speakers (Ours)      |  7.1% (+0.4%) |  13.6% (+0.0%) |
 |   Overlapped speakers (Ours)   |  1.8% (-0.2%)  |  4.2% (-1.4%)  |
 
@@ -18,7 +17,6 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 |:-----------------------:|:-----:|:-----:|
 |    Unseen speakers      |  28775  |  3971  |
 |   Overlapped speakers   |  24076  |  8670  |
-|:-----------------------:|:-----:|:-----:|
 |    Unseen speakers (Ours)     |  28837 |  3986 |
 |   Overlapped speakers (Ours)  |  24459  |  8364  |
 
