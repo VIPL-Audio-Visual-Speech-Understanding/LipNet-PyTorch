@@ -78,7 +78,10 @@ class LipNet(torch.nn.Module):
         # (B, C, T, H, W)->(T, B, C*H*W)
         x = x.view(x.size(0), x.size(1), -1)
         
-        x, h = self.gru1(x)
+        self.gru1.flatten_parameters()
+        self.gru2.flatten_parameters()
+        
+        x, h = self.gru1(x)        
         x = self.dropout(x)
         x, h = self.gru2(x)   
         x = self.dropout(x)
