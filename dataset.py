@@ -40,7 +40,8 @@ class MyDataset(Dataset):
 
         if(self.phase == 'train'):
             vid = HorizontalFlip(vid)
-        vid = ColorNormalize(vid)
+          
+        vid = ColorNormalize(vid)                   
         
         vid_len = vid.shape[0]
         anno_len = anno.shape[0]
