@@ -117,8 +117,8 @@ if(__name__ == '__main__'):
         data = list(set([os.path.split(file)[0] for file in data]))
 
     
-    annos = [name.replace('/home/fengdalu/data/GRID/6k_video_imgs', '/home/fengdalu/data/GRID/landmarks') for name in data]  
-    targets = [name.replace('/home/fengdalu/data/GRID/6k_video_imgs', '/home/fengdalu/data/GRID/lip') for name in data]  
+    annos = [name.replace('GRID/6k_video_imgs', 'GRID/landmarks') for name in data]  
+    targets = [name.replace('GRID/6k_video_imgs', 'GRID/lip') for name in data]  
     
     for dst in targets:
         if(not os.path.exists(dst)):

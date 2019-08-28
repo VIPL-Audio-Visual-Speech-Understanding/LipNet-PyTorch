@@ -1,9 +1,9 @@
 gpu = '3'
 random_seed = 0
-video_path = '/ssd/GRID/lip'
+video_path = 'lip/'
 train_list = 'data/unseen_train.txt'
 val_list = 'data/unseen_val.txt'
-anno_path = '/ssd/GRID/GRID_align_txt'
+anno_path = 'GRID_align_txt'
 vid_padding = 75
 txt_padding = 200
 batch_size = 120

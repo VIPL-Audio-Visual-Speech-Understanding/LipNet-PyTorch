@@ -13,12 +13,12 @@ import time
 class MyDataset(Dataset):
     
     def __init__(self):
-        self.IN = '/home/code/fengdalu/data/TAL_mp4'
-        self.OUT = '/home/code/fengdalu/data/TAL_imgs_all'
+        self.IN = 'GRID/'
+        self.OUT = 'GRID_imgs/'
 
-        self.wav = '/home/code/fengdalu/data/TAL_wav_all'
+        self.wav = 'GRID_wavs/'
 
-        with open('TAL_files.txt', 'r') as f:
+        with open('GRID_files.txt', 'r') as f:
             files = [line.strip() for line in f.readlines()]
             self.files = []
             for file in files:  
