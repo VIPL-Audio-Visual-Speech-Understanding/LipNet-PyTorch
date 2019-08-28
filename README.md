@@ -12,6 +12,10 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 |    Unseen speakers (Ours)      |  6.8%|  **13.5%** |
 |   Overlapped speakers (Ours)   |  **1.7%**  |  **4.1%**  |
 
+**Notes**:
+
+- Contribution in sharing the results of this model is highly appreciated
+
 ## Data Statistics
 
 |       Scenario          |  Train  |  Validation  |
@@ -34,9 +38,6 @@ python main.py
 
 Data path and hyperparameters are configured in `options.py`. Please pay attention that you may need to modify `options.py` to make the program work as expected.
 
-**Notes**:
-
-- Contribution in sharing the results of this model is highly appreciated
 
 ## Dependencies
 
