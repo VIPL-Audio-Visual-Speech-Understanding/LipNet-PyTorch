@@ -1,6 +1,7 @@
 # LipNet: End-to-End Sentence-level Lipreading
 
-PyTorch implementation of the method described in the paper 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599).
+PyTorch implementation of the method described in the paper 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599). The program achieves the state-of-art results excepted unseen word error rate.
+
 
 ## Results
 
@@ -28,3 +29,19 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 * PyTorch 1.0+
 * opencv-python
+
+## Preprocessing
+
+Face detection and alignment is needed generate training data. We provide examples in `extract_frame.py`, `face_det_sfd.py` and `extract_lip.py`. 
+
+## Training And Testing
+
+```
+python main.py
+```
+
+Data path and hyperparameters are configured in `options.py`. Please pay attention that you may need to modify `options.py` to make the program work as expected.
+
+
+
+
