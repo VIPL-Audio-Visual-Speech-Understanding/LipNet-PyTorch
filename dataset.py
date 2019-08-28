@@ -62,8 +62,8 @@ class MyDataset(Dataset):
         files = sorted(files, key=lambda file: int(os.path.splitext(file)[0]))
         array = [cv2.imread(os.path.join(p, file)) for file in files]
         array = list(filter(lambda im: not im is None, array))
-        array = [cv2.resize(im, (100, 50)) for im in array]
-        array = np.stack(array, axis=0)
+        array = [cv2.resize(im, (100, 50), interpolation=cv2.INTER_LANCZOS4) for im in array]
+        array = np.stack(array, axis=0).astype(np.float32)
         return array
     
     def _load_anno(self, name):
@@ -100,8 +100,11 @@ class MyDataset(Dataset):
         pre = -1
         txt = []
         for n in arr:
-            if(pre != n and n >= start):
-                txt.append(MyDataset.letters[n - start])
+            if(pre != n and n >= start):                
+                if(len(txt) > 0 and txt[-1] == ' ' and MyDataset.letters[n - start] == ' '):
+                    pass
+                else:
+                    txt.append(MyDataset.letters[n - start])                
             pre = n
         return ''.join(txt).strip()
             
@@ -109,9 +112,9 @@ class MyDataset(Dataset):
     def wer(predict, truth):        
         word_pairs = [(p[0].split(' '), p[1].split(' ')) for p in zip(predict, truth)]
         wer = [1.0*editdistance.eval(p[0], p[1])/len(p[1]) for p in word_pairs]
-        return np.array(wer).mean()
+        return wer
         
     @staticmethod
     def cer(predict, truth):        
         cer = [1.0*editdistance.eval(p[0], p[1])/len(p[1]) for p in zip(predict, truth)]
-        return np.array(cer).mean()        
+        return cer

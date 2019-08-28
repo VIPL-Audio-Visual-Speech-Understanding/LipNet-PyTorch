@@ -21,10 +21,10 @@ if(__name__ == '__main__'):
     os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu    
     writer = SummaryWriter()
 
-def dataset2dataloader(dataset, num_workers=opt.num_workers):
+def dataset2dataloader(dataset, num_workers=opt.num_workers, shuffle=True):
     return DataLoader(dataset,
         batch_size = opt.batch_size, 
-        shuffle = True,
+        shuffle = shuffle,
         num_workers = num_workers,
         drop_last = False)
 
@@ -51,7 +51,7 @@ def test(model, net):
             
         print('num_test_data:{}'.format(len(dataset.data)))  
         model.eval()
-        loader = dataset2dataloader(dataset)
+        loader = dataset2dataloader(dataset, shuffle=False)
         loss_list = []
         wer = []
         cer = []
@@ -64,13 +64,14 @@ def test(model, net):
             txt_len = input.get('txt_len').cuda()
             
             y = net(vid)
+            
             loss = crit(y.transpose(0, 1).log_softmax(-1), txt, vid_len.view(-1), txt_len.view(-1)).detach().cpu().numpy()
             loss_list.append(loss)
             pred_txt = ctc_decode(y)
             
             truth_txt = [MyDataset.arr2txt(txt[_], start=1) for _ in range(txt.size(0))]
-            wer.append(MyDataset.wer(pred_txt, truth_txt)) 
-            cer.append(MyDataset.cer(pred_txt, truth_txt))              
+            wer.extend(MyDataset.wer(pred_txt, truth_txt)) 
+            cer.extend(MyDataset.cer(pred_txt, truth_txt))              
             if(i_iter % opt.display == 0):
                 v = 1.0*(time.time()-tic)/(i_iter+1)
                 eta = v * (len(loader)-i_iter) / 3600.0
@@ -105,8 +106,8 @@ def train(model, net):
     crit = nn.CTCLoss()
     tic = time.time()
     
+    train_wer = []
     for epoch in range(opt.max_epoch):
-        train_wer = []
         for (i_iter, input) in enumerate(loader):
             model.train()
             vid = input.get('vid').cuda()
@@ -126,7 +127,7 @@ def train(model, net):
             pred_txt = ctc_decode(y)
             
             truth_txt = [MyDataset.arr2txt(txt[_], start=1) for _ in range(txt.size(0))]
-            train_wer.append(MyDataset.wer(pred_txt, truth_txt))
+            train_wer.extend(MyDataset.wer(pred_txt, truth_txt))
             
             if(tot_iter % opt.display == 0):
                 v = 1.0*(time.time()-tic)/(tot_iter+1)
@@ -143,7 +144,6 @@ def train(model, net):
                 print(''.join(101*'-'))                
                 print('epoch={},tot_iter={},eta={},loss={},train_wer={}'.format(epoch, tot_iter, eta, loss, np.array(train_wer).mean()))
                 print(''.join(101*'-'))
-
                 
             if(tot_iter % opt.test_step == 0):                
                 (loss, wer, cer) = test(model, net)
