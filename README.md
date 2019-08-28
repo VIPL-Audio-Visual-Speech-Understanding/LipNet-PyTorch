@@ -27,3 +27,4 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 ## Dependencies
 
 * PyTorch 1.0+
+* opencv-python
