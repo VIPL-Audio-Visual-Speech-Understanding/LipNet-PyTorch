@@ -21,14 +21,6 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 |    Unseen speakers (Ours)     |  28837 |  3986 |
 |   Overlapped speakers (Ours)  |  24408  |  8415  |
 
-**Notes**:
-
-- Contribution in sharing the results of this model is highly appreciated
-
-## Dependencies
-
-* PyTorch 1.0+
-* opencv-python
 
 ## Preprocessing
 
@@ -42,6 +34,14 @@ python main.py
 
 Data path and hyperparameters are configured in `options.py`. Please pay attention that you may need to modify `options.py` to make the program work as expected.
 
+**Notes**:
+
+- Contribution in sharing the results of this model is highly appreciated
+
+## Dependencies
+
+* PyTorch 1.0+
+* opencv-python
 
 
 
