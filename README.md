@@ -28,7 +28,7 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 ## Preprocessing
 
-Link of processed lip images and text: https://pan.baidu.com/s/1m8gfmffoyBati_ujUo0fnw
+Link of processed lip images and text: https://pan.baidu.com/s/165swxO8A-GUZ03-InTL6VA
 
 Download all parts and concatenate the files using the command 
 
