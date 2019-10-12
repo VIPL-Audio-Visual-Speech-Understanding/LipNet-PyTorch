@@ -28,7 +28,15 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 ## Preprocessing
 
-Face detection and alignment is needed to generate training data. We provide examples in `extract_frame.py`, `face_det_sfd.py` and `extract_lip.py`. 
+Processed Lip Data and Text Link: https://pan.baidu.com/s/1m8gfmffoyBati_ujUo0fnw
+
+Download all parts and concatenate the files using the command 
+
+```
+cat GRID_LIP_160x80_TXT.zip.* > GRID_LIP_160x80_TXT.zip
+```
+
+We provide examples of face detection and alignment in `scripts/` folder for your own dataset.
 
 ## Training And Testing
 
