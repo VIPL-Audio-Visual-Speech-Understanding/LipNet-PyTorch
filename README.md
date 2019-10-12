@@ -34,6 +34,8 @@ Download all parts and concatenate the files using the command
 
 ```
 cat GRID_LIP_160x80_TXT.zip.* > GRID_LIP_160x80_TXT.zip
+unzip GRID_LIP_160x80_TXT.zip
+rm GRID_LIP_160x80_TXT.zip
 ```
 
 We provide examples of face detection and alignment in `scripts/` folder for your own dataset.
