@@ -56,5 +56,18 @@ Data path and hyperparameters are configured in `options.py`. Please pay attenti
 * PyTorch 1.0+
 * opencv-python
 
+## Bibtex
+    @article{assael2016lipnet,
+	  title={LipNet: End-to-End Sentence-level Lipreading},
+	  author={Assael, Yannis M and Shillingford, Brendan and Whiteson, Shimon and de Freitas, Nando},
+	  journal={GPU Technology Conference},
+	  year={2017},
+    url={https://github.com/Fengdalu/LipNet-PyTorch}
+	}
+
+
+## License
+
+The MIT License
 
 
