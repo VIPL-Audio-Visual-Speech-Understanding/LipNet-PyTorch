@@ -7,8 +7,8 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 |       Scenario          |  CER  |  WER  |
 |:-----------------------:|:-----:|:-----:|
-|    Unseen speakers      |  **6.7%** |  13.6% |
-|   Overlapped speakers   |  2.0%  |  5.6%  |
+|    Unseen speakers (Origin)     |  **6.7%** |  13.6% |
+|   Overlapped speakers (Origin)   |  2.0%  |  5.6%  |
 |    Unseen speakers (Ours)      |  6.8%|  **13.5%** |
 |   Overlapped speakers (Ours)   |  **1.7%**  |  **4.1%**  |
 
@@ -20,8 +20,8 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 |       Scenario          |  Train  |  Validation  |
 |:-----------------------:|:-----:|:-----:|
-|    Unseen speakers      |  28775  |  3971  |
-|   Overlapped speakers  |  24331  |  8415  |
+|    Unseen speakers (Origin)      |  28775  |  3971  |
+|   Overlapped speakers (Origin)  |  24331  |  8415  |
 |    Unseen speakers (Ours)     |  28837 |  3986 |
 |   Overlapped speakers (Ours)  |  24408  |  8415  |
 
