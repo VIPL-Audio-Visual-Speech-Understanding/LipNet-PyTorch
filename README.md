@@ -62,7 +62,7 @@ Data path and hyperparameters are configured in `options.py`. Please pay attenti
 	  author={Assael, Yannis M and Shillingford, Brendan and Whiteson, Shimon and de Freitas, Nando},
 	  journal={GPU Technology Conference},
 	  year={2017},
-    url={https://github.com/Fengdalu/LipNet-PyTorch}
+	  url={https://github.com/Fengdalu/LipNet-PyTorch}
 	}
 
 
