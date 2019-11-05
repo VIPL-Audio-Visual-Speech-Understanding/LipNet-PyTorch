@@ -7,12 +7,12 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 ## Results
 
-|       Scenario          |  CER  |  WER  |
-|:-----------------------:|:-----:|:-----:|
-|    Unseen speakers (Origin)     |  6.7% |  13.6% |
-|   Overlapped speakers (Origin)   |  2.0%  |  5.6%  |
-|    Unseen speakers (Ours)      |  **6.7%** |  **13.3%** |
-|   Overlapped speakers (Ours)   |  **1.9%**  |  **4.6%**  |
+|       Scenario          |  Image Size (W x H) |  CER  |     WER    |
+|:-----------------------:|:-------------------:|:-----:|:----------:|
+|    Unseen speakers (Origin)    | 100 x 50 |    6.7%   |    13.6%   |
+|   Overlapped speakers (Origin) | 100 x 50 |    2.0%   |    5.6%    |
+|    Unseen speakers (Ours)      | 128 x 64 |  **6.7%** |  **13.3%** |
+|   Overlapped speakers (Ours)   | 128 x 64 |  **1.9%** |  **4.6%**  |
 
 **Notes**:
 
@@ -20,12 +20,12 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 ## Data Statistics
 
-|       Scenario          |  Image Size (W x H) | Train  |  Validation  |
-|:-----------------------:|:-----:|:-----:|
-|    Unseen speakers (Origin)      | 100 x 50 |  28775  |  3971  |
-|   Overlapped speakers (Origin)  | 100 x 50|  24331  |  8415  |
-|    Unseen speakers (Ours)     | 128 x 64 |  28837 |  3986 |
-|   Overlapped speakers (Ours)  | 128 x 64 |  24408  |  8415  |
+|             Scenario            |   Train   |  Validation  |
+|:-------------------------------:|:---------:|:------------:|
+|    Unseen speakers (Origin)     |   28775   |     3971     |      
+|   Overlapped speakers (Origin)  |   24331   |     8415     |
+|    Unseen speakers (Ours)       |   28837   |     3986     |
+|   Overlapped speakers (Ours)    |   24408   |     8415     |
 
 
 ## Preprocessing
