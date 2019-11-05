@@ -116,7 +116,7 @@ def load_video(file):
             (x, y) = front256[-20:].mean(0).astype(np.int32)
             w = 160//2
             img = img[y-w//2:y+w//2,x-w:x+w,...]
-            img = cv2.resize(img, (100, 50))
+            img = cv2.resize(img, (128, 64))
             video.append(img)
     
     

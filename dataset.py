@@ -62,7 +62,7 @@ class MyDataset(Dataset):
         files = sorted(files, key=lambda file: int(os.path.splitext(file)[0]))
         array = [cv2.imread(os.path.join(p, file)) for file in files]
         array = list(filter(lambda im: not im is None, array))
-        array = [cv2.resize(im, (100, 50), interpolation=cv2.INTER_LANCZOS4) for im in array]
+        array = [cv2.resize(im, (128, 64), interpolation=cv2.INTER_LANCZOS4) for im in array]
         array = np.stack(array, axis=0).astype(np.float32)
         return array
     

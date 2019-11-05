@@ -1,6 +1,6 @@
 # LipNet: End-to-End Sentence-level Lipreading
 
-PyTorch implementation of the method described in the paper 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599). This program achieves the state-of-art results excepted the unseen speakers' character error rate.
+PyTorch implementation of the method described in the paper 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599). This version achieves **the state-of-art results in all evaluation metrics**.
 
 ![LipNet Demo](demo.gif)
 
@@ -9,10 +9,10 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 |       Scenario          |  CER  |  WER  |
 |:-----------------------:|:-----:|:-----:|
-|    Unseen speakers (Origin)     |  **6.7%** |  13.6% |
+|    Unseen speakers (Origin)     |  6.7% |  13.6% |
 |   Overlapped speakers (Origin)   |  2.0%  |  5.6%  |
-|    Unseen speakers (Ours)      |  6.8%|  **13.5%** |
-|   Overlapped speakers (Ours)   |  **1.7%**  |  **4.1%**  |
+|    Unseen speakers (Ours)      |  **6.7%** |  **13.3%** |
+|   Overlapped speakers (Ours)   |  **1.9%**  |  **4.6%**  |
 
 **Notes**:
 
