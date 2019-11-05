@@ -20,12 +20,12 @@ PyTorch implementation of the method described in the paper 'LipNet: End-to-End 
 
 ## Data Statistics
 
-|       Scenario          |  Train  |  Validation  |
+|       Scenario          |  Image Size (W x H) | Train  |  Validation  |
 |:-----------------------:|:-----:|:-----:|
-|    Unseen speakers (Origin)      |  28775  |  3971  |
-|   Overlapped speakers (Origin)  |  24331  |  8415  |
-|    Unseen speakers (Ours)     |  28837 |  3986 |
-|   Overlapped speakers (Ours)  |  24408  |  8415  |
+|    Unseen speakers (Origin)      | 100 x 50 |  28775  |  3971  |
+|   Overlapped speakers (Origin)  | 100 x 50|  24331  |  8415  |
+|    Unseen speakers (Ours)     | 128 x 64 |  28837 |  3986 |
+|   Overlapped speakers (Ours)  | 128 x 64 |  24408  |  8415  |
 
 
 ## Preprocessing
