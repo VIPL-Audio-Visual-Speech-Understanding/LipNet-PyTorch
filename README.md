@@ -32,7 +32,7 @@ The state-of-art PyTorch implementation of 'LipNet: End-to-End Sentence-level Li
 
 Link of processed lip images and text: https://pan.baidu.com/s/165swxO8A-GUZ03-InTL6VA
 
-OneDrive: https://ddd923-my.sharepoint.com/:f:/g/personal/fengdalu_msvip_ooo/Euc2NO5cxF9Ph2Bo22ZLydgBV_Tc5ruCrfv83waZ6evL8w?e=2pqBzq
+Google Drive: https://drive.google.com/drive/folders/1Wn2EJw2101nF59eNDXEto6qXqfgDDucL
 
 Download all parts and concatenate the files using the command 
 
