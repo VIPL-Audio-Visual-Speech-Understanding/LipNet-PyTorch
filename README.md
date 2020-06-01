@@ -30,7 +30,9 @@ The state-of-art PyTorch implementation of 'LipNet: End-to-End Sentence-level Li
 
 ## Preprocessing
 
-Link of processed lip images and text: https://pan.baidu.com/s/165swxO8A-GUZ03-InTL6VA
+Link of processed lip images and text: 
+
+BaiduYun: 链接:https://pan.baidu.com/s/1I51Xf-DzP1UgrXF-S0L5tg  密码:jf0l
 
 Google Drive: https://drive.google.com/drive/folders/1Wn2EJw2101nF59eNDXEto6qXqfgDDucL
 
