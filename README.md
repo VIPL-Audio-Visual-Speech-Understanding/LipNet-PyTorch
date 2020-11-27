@@ -18,10 +18,11 @@ The PyTorch implementation of 'LipNet: End-to-End Sentence-level Lipreading' by 
 
 **Notes**:
 
-- Following the original split, we use `s1`, `s2`, `s20`, `s22` in unseen speakers testing and choose 255 random sentences from each speaker in overlapped speakers testing.
 - Contribution to sharing the results of this model is highly appreciated.
 
 ## Data Statistics
+
+Following the original split, we use `s1`, `s2`, `s20`, `s22` in unseen speakers testing and choose 255 random sentences from each speaker in overlapped speakers testing.
 
 |             Scenario            |   Train   |  Validation  |
 |:-------------------------------:|:---------:|:------------:|
