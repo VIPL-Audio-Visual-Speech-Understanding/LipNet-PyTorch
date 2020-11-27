@@ -1,6 +1,6 @@
 # LipNet: End-to-End Sentence-level Lipreading
 
-The state-of-art PyTorch implementation of 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599). This version achieves 13.3%/4.6% WER in unseen/overlapped testing, which reaches **the state-of-the-art performance**.
+The PyTorch implementation of 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599). We use PyTorch to build the LipNet model with minor changes. This reproduction achieves 13.3%/4.6% WER in unseen/overlapped testing, which exceeds all evaluation metrics in the original paper and reaches **the state-of-the-art performance**.
 
 ## Demo
 
