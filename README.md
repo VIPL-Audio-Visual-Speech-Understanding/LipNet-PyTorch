@@ -1,6 +1,8 @@
 # LipNet: End-to-End Sentence-level Lipreading
 
-The state-of-art PyTorch implementation of 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599). This version achieves **the best performance in all evaluation metrics**.
+The state-of-art PyTorch implementation of 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599). This version achieves 13.3%/4.6% WER in unseen/overlapped testing, which reaches **the state-of-the-art performance**.
+
+## Demo
 
 ![LipNet Demo](demo.gif)
 
@@ -16,7 +18,8 @@ The state-of-art PyTorch implementation of 'LipNet: End-to-End Sentence-level Li
 
 **Notes**:
 
-- Contribution in sharing the results of this model is highly appreciated
+- Following the original split, we use `s1`, `s2`, `s20`, `s22` in unseen speakers testing and choose 255 random sentences from each speaker in overlapped speakers testing.
+- Contribution to sharing the results of this model is highly appreciated.
 
 ## Data Statistics
 
@@ -28,7 +31,7 @@ The state-of-art PyTorch implementation of 'LipNet: End-to-End Sentence-level Li
 |   Overlapped speakers (Ours)    |   24408   |     8415     |
 
 
-## Preprocessing
+## Data Preparation
 
 Link of processed lip images and text: 
 
@@ -44,7 +47,7 @@ unzip GRID_LIP_160x80_TXT.zip
 rm GRID_LIP_160x80_TXT.zip
 ```
 
-We provide examples of face detection and alignment in `scripts/` folder for your own dataset.
+For establishing a dataset by yourself, we provide code of face detection and alignment in `scripts/` folder for reference.
 
 ## Training And Testing
 
@@ -52,7 +55,7 @@ We provide examples of face detection and alignment in `scripts/` folder for you
 python main.py
 ```
 
-Data path and hyperparameters are configured in `options.py`. Please pay attention that you may need to modify `options.py` to make the program work as expected.
+Data configurations and hyperparameters are configured in `options.py`. Please pay attention that you may need to modify it to make the program work as expected. (e.g. data path, learning rate, batch size, and so on)
 
 
 ## Dependencies
@@ -73,5 +76,3 @@ Data path and hyperparameters are configured in `options.py`. Please pay attenti
 ## License
 
 The MIT License
-
-
