@@ -33,13 +33,13 @@ The state-of-art PyTorch implementation of 'LipNet: End-to-End Sentence-level Li
 
 ## Data Preparation
 
-Link of processed lip images and text: 
+We provide cropped lip images in the following links: 
 
 BaiduYun: 链接:https://pan.baidu.com/s/1I51Xf-DzP1UgrXF-S0L5tg  密码:jf0l
 
 Google Drive: https://drive.google.com/drive/folders/1Wn2EJw2101nF59eNDXEto6qXqfgDDucL
 
-Download all parts and concatenate the files using the command 
+Download all parts and concatenate the files using the following command:
 
 ```
 cat GRID_LIP_160x80_TXT.zip.* > GRID_LIP_160x80_TXT.zip
@@ -47,7 +47,7 @@ unzip GRID_LIP_160x80_TXT.zip
 rm GRID_LIP_160x80_TXT.zip
 ```
 
-For establishing a dataset by yourself, we provide code of face detection and alignment in `scripts/` folder for reference.
+For establishing a whole lip reading pipeline by yourself, we provide code of face detection and alignment in `scripts/` folder for reference.
 
 ## Training And Testing
 
