@@ -112,7 +112,7 @@ Optional arguments:
 - `display`: The display interval in training and testing. For example, if `display=10`, the program will be print one time after 10 iterations.
 - `test_step`: The interval for testing and snapshot. For example, if `test_step=1000`, the program will test after 1000 training iterations.
 - `save_prefix`: The save prefix of model checkpoints.
-- `is_optimize`: The training mode. If this is set to 'False', the model will test one time and exit.
+- `is_optimize`: The training mode. If this is set to `False`, the model will test one time and exit.
 - `weights`: The location of pre-trained weights. The model will load this weight before training or testing. If this parameter is missed, the model will be trained from scratch.
 
 ## Simple demo
