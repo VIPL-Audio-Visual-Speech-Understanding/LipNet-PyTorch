@@ -34,7 +34,7 @@ Following the original split, we use `s1`, `s2`, `s20`, `s22` in unseen speakers
 
 ## Data Preparation
 
-We provide cropped lip images in the following links: 
+We provide cropped lip images and annotation files in the following links: 
 
 BaiduYun: 链接:https://pan.baidu.com/s/1I51Xf-DzP1UgrXF-S0L5tg  密码:jf0l
 
