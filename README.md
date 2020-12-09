@@ -36,7 +36,7 @@ Following the original split, we use `s1`, `s2`, `s20`, `s22` in unseen speakers
 
 We provide cropped lip images and annotation files in the following links: 
 
-[BaiduYun](链接:https://pan.baidu.com/s/1I51Xf-DzP1UgrXF-S0L5tg) (Code: jf0l) [Google Drive](https://drive.google.com/drive/folders/1Wn2EJw2101nF59eNDXEto6qXqfgDDucL)
+[BaiduYun (Code: jf0l)](https://pan.baidu.com/s/1I51Xf-DzP1UgrXF-S0L5tg)  [Google Drive](https://drive.google.com/drive/folders/1Wn2EJw2101nF59eNDXEto6qXqfgDDucL)
 
 Download all parts and concatenate the files using the following command:
 
