@@ -18,7 +18,7 @@ The PyTorch implementation of 'LipNet: End-to-End Sentence-level Lipreading' by 
 
 **Notes**:
 
-- Contribution to sharing the results of this model is highly appreciated.
+- These results are really hard to reproduce. For further research, the contribution to sharing the results of this model is highly appreciated (e.g. training logs, pretrained weights, learning rate schedulers, and so on) 
 
 ## Data Statistics
 
