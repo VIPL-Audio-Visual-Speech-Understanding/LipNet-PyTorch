@@ -101,7 +101,7 @@ Optional arguments:
 - `random_seed`: random seed for training and testing
 - `data_type`: the data split in GRID Corpus, `unseen` and `overlap` is supported.
 - `train_list`: The training index file. Each line contains a video folder like `s5/video/mpg_6000/lgbs5a`. The `dataset.py` will read all `*.jpg` files in the folder by the frame order.
-- `test_list`: The testing index file. Each line contains a video folder like `s5/video/mpg_6000/lgbs5a`. The `dataset.py` will read all `*.jpg` files in the folder by the frame order.
+- `test_list`: The testing index file. Same as `train_list`
 - `anno_path`: The annotation root, which contains the annotation files `*.align` for each video.
 - `vid_padding`: The video padding length, each video will be padded to `vid_padding` by zero.
 - `txt_padding`: The txt padding length, each txt will be paded to `txt_padding` by zero.
