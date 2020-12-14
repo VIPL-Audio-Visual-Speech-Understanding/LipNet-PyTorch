@@ -38,6 +38,8 @@ We provide cropped lip images and annotation files in the following links:
 
 [BaiduYun (Code: jf0l)](https://pan.baidu.com/s/1I51Xf-DzP1UgrXF-S0L5tg), [Google Drive](https://drive.google.com/drive/folders/1Wn2EJw2101nF59eNDXEto6qXqfgDDucL)
 
+The original GRID Corpus can be found [here](http://spandh.dcs.shef.ac.uk/gridcorpus/).
+
 Download all parts and concatenate the files using the following command:
 
 ```
